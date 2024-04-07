@@ -6,6 +6,7 @@
 file="src/ShellCheck/Data.hs"
 test -e "$file"
 tmp=$(mktemp)
-version=$(git describe)
+### version=$(git describe)
+version="0.10.0"
 sed -e "s/=.*VERSIONSTRING.*/= \"$version\" -- VERSIONSTRING, DO NOT SUBMIT/" "$file" > "$tmp"
 mv "$tmp" "$file"
