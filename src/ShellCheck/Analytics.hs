@@ -3134,7 +3134,7 @@ prop_checkReadWithoutR5 = verifyNot checkReadWithoutR "read -t 0 foo < file.txt"
 prop_checkReadWithoutR6 = verifyNot checkReadWithoutR "read -u 3 -t 0"
 checkReadWithoutR _ t@T_SimpleCommand {} | t `isUnqualifiedCommand` "read"
     && "r" `notElem` map snd flags && not has_t0 =
-        info (getId $ getCommandTokenOrThis t) 2162 "不使用 -r 选项读取文件会破坏反斜杠 read without -r will mangle backslashes."
+        info (getId $ getCommandTokenOrThis t) 2162 "不使用 -r 选项读取文件会破坏反斜杠\nread without -r will mangle backslashes."
   where
     flags = getAllFlags t
     has_t0 = Just "0" == do
