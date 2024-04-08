@@ -2545,7 +2545,7 @@ checkGlobsAsOptions _ cmd@(T_SimpleCommand _ _ args) =
         mapM_ check $ takeWhile (not . isEndOfArgs) (drop 1 args)
   where
     check v@(T_NormalWord _ (T_Glob id s:_)) | s == "*" || s == "?" =
-        info id 2035 "使用 ./\*glob* 或 -- \*glob*，以使带短划线的名称不会变成选项。"
+        info id 2035 "使用 ./*glob* 或 -- *glob*，以使带短划线的名称不会变成选项。"
     check _ = return ()
 
     isEndOfArgs t =
